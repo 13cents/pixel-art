@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doom Fire - Pixel Art</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="retro-title">DOOM FIRE FX</h1>
+      <div class="subtitle">Pixel-accurate classic DOOM PSX fire simulation</div>
+    </div>
+
+    <div class="canvas-wrapper">
+      <canvas id="fireCanvas"></canvas>
+    </div>
+
+    <div class="controls-panel">
+      <div class="control-group">
+        <button id="toggleFire" class="retro-btn active">Kill Fire</button>
+        <button id="windLeft" class="retro-btn">Wind &larr;</button>
+        <button id="windCalm" class="retro-btn active">Calm</button>
+        <button id="windRight" class="retro-btn">Wind &rarr;</button>
+      </div>
+
+      <div class="control-group">
+        <button id="pauseBtn" class="retro-btn">Pause</button>
+        <button id="stepBtn" class="retro-btn">Step</button>
+        <button id="resetBtn" class="retro-btn">Reset</button>
+        <button id="embersBtn" class="retro-btn active">Embers</button>
+        <button id="barrierBtn" class="retro-btn active">Barrier</button>
+        <button id="scanBtn" class="retro-btn">CRT</button>
+        <button id="saveBtn" class="retro-btn">Save PNG</button>
+      </div>
+
+      <div class="sliders-group">
+        <label>
+          Speed (ticks/s):
+          <input type="range" id="speedRange" min="10" max="120" value="60" step="5">
+          <span id="speedValue">60</span>
+        </label>
+        <label>
+          Brush size:
+          <input type="range" id="brushRange" min="1" max="12" value="4" step="1">
+          <span id="brushValue">4</span>
+        </label>
+        <label>
+          Resolution:
+          <select id="resSelect" class="retro-select">
+            <option value="40x30">40 × 30 (chunky)</option>
+            <option value="80x60" selected>80 × 60</option>
+            <option value="160x120">160 × 120</option>
+            <option value="280x210">280 × 210 (fine)</option>
+          </select>
+        </label>
+        <label>
+          Fire Height / Decay:
+          <input type="range" id="decayRange" min="1" max="5" value="3" step="1">
+          <span id="decayValue">3</span>
+        </label>
+        <label>
+          Palette:
+          <select id="paletteSelect" class="retro-select">
+            <option value="classic">Classic Doom (Orange/Yellow)</option>
+            <option value="hellfire">Soulfire (Cyan/Blue)</option>
+            <option value="toxic">Toxic Acid (Green)</option>
+            <option value="neon">Cyberpunk (Magenta/Purple)</option>
+            <option value="grayscale">Ashes (Monochrome)</option>
+          </select>
+        </label>
+      </div>
+      
+      <div class="hint">Hover: block fire &middot; Drag: ignite &middot; Right-click/Shift+drag: extinguish &middot; Keys: Space pause, B barrier, R reset, K kill, S save, arrows wind</div>
+
+      <div class="stats">
+        <span>Resolution: <b id="resDisplay">80 &times; 60</b></span>
+        <span>FPS: <b id="fpsDisplay">--</b></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="fire.js"></script>
+</body>
+</html>
